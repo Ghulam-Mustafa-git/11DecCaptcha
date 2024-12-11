@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="text">Registration Form</div>
+        <form id="registrationForm" action="/sign_up" method="post" onsubmit="return validateForm()">
+            <!-- Registration Number and Name -->
+            <div class="form-row">
+                <div class="input-data">
+                    <label for="regd_no">Registration Number</label>
+                    <input type="text" id="regd_no" name="regd_no" required>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-data">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <!-- Email and Branch -->
+            <div class="form-row">
+                <div class="input-data">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-data">
+                    <label for="branch">Branch</label>
+                    <select name="branch" id="branch" required>
+                        <option value="sales">Sales</option>
+                        <option value="research and development">Research and Development</option>
+                        <option value="flutter developer">Flutter Developer</option>
+                        <option value="full stack developer">Full Stack Developer</option>
+                    </select>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            <!-- Agree Terms and Conditions Toggle -->
+            <div class="form-row toggle-row">
+                <label class="toggle-label" for="agree">Agree to the terms and conditions policy</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <span class="slider"></span>
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-row gender-row">
+                <label for="gender">Gender</label>
+                <div class="gender-options">
+                    <label>
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        Female
+                    </label>
+                </div>
+            </div>
+
+            <!-- Do you have a bank account? -->
+            <div class="form-row">
+                <label for="bank_account">Do you have a bank account?</label>
+                <div class="radio-options">
+                    <label class="radio-left">
+                        <input type="radio" id="yes" name="bank_account" value="yes" required>
+                        Yes
+                    </label>
+                    <label class="radio-right">
+                        <input type="radio" id="no" name="bank_account" value="no" required>
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <!-- Account Input Based on Selection -->
+            <div id="account-info" style="display: none;">
+                <div class="form-row">
+                    <div class="input-data">
+                        <label for="account_number">Enter IBAN Number</label>
+                        <input type="text" id="account_number" name="account_number">
+                        <div class="underline"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="wallet-info" style="display: none;">
+                <div class="form-row">
+                    <div class="input-data">
+                        <label for="wallet_number">Enter Binance Account</label>
+                        <input type="text" id="wallet_number" name="wallet_number">
+                        <div class="underline"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="form-row">
+                <div class="g-recaptcha" data-sitekey="6Lf36ZAqAAAAAGx_mWAQomrU978uOavO9fnDKnbg"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-row submit-btn">
+                <div class="input-data">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+
+        <!-- Message Section -->
+        <div id="message" class="message" style="display: none;"></div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
